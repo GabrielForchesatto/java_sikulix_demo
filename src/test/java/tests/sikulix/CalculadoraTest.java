@@ -2,6 +2,8 @@ package tests.sikulix;
 
 import org.sikuli.script.FindFailed;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import reports.ReportListener;
 import sikulix.calculadora.actions.CalculadoraAction;
@@ -15,15 +17,23 @@ public class CalculadoraTest extends BaseSikulix {
     protected static final String VALOR_1 = "1";
     protected static final String VALOR_2 = "2";
 
-    @Test
-    public static void deveraSomarDoisValoresCorretamente() throws FindFailed, IOException {
+    @BeforeClass
+    public static void abrirAplicacao() throws FindFailed {
         CalculadoraAction.abrirCalculadora();
         CalculadoraAction.maximizarCalculadora();
+    }
+
+    @AfterClass
+    public static void fecharAplicacao() {
+        CalculadoraAction.fecharCalculadora();
+    }
+
+    @Test
+    public static void deveraSomarDoisValoresCorretamente() throws FindFailed, IOException {
         CalculadoraAction.somarValores(VALOR_1, VALOR_2);
 
         Assert.assertEquals(CalculadoraAction.resultadoGetText(), "3");
         ReportListener.logScreenshotHighlightSikulix("Resultado da soma", -40, 30, -1550, -270, CalculadoraPage.padraoLabel());
-
-        CalculadoraAction.fecharCalculadora();
     }
+
 }
