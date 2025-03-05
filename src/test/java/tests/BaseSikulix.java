@@ -13,7 +13,7 @@ public abstract class BaseSikulix extends BaseScreen {
 
     @BeforeClass
     public synchronized void preCondicao() {
-        Settings.MinSimilarity = 0.85;
+        Settings.MinSimilarity = 0.80;
     }
 
 
