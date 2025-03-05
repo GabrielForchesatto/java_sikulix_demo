@@ -19,7 +19,9 @@ public class CalculadoraAction extends CalculadoraPage {
 
     public static void maximizarCalculadora() throws FindFailed {
         calculadoraLabelWait();
-        screen.doubleClick(calculadoraLabel());
+        if (appMinimizadoExists() != null) {
+            screen.doubleClick(calculadoraLabel());
+        }
     }
 
     public static void fecharCalculadora() {
@@ -31,12 +33,16 @@ public class CalculadoraAction extends CalculadoraPage {
         }
     }
 
-    public static void somarValores(String valor1, String valor2) throws FindFailed {
+    public static void somarValores(String... valores) throws FindFailed {
         maisButtonWait();
-        numerosSendKeys(valor1);
-        screen.click(maisButton());
-        numerosSendKeys(valor2);
-        screen.click(igualdadeButton());
+        for (String valor : valores) {
+            numerosSendKeys(valor);
+            screen.click(maisButton());
+        }
+    }
+
+    public static void limparValores() throws FindFailed {
+        screen.click(limparValoresButton());
     }
 
 }
