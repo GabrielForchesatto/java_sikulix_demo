@@ -32,6 +32,7 @@ public class CalculadoraAction extends CalculadoraPage {
     }
 
     public static void somarValores(String valor1, String valor2) throws FindFailed {
+        maisButtonWait();
         numerosSendKeys(valor1);
         screen.click(maisButton());
         numerosSendKeys(valor2);

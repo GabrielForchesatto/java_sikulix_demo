@@ -29,6 +29,10 @@ public class CalculadoraPage extends BaseScreen {
         screen.wait(calculadoraLabel(), TIME_OUT_SCREEN);
     }
 
+    public static void maisButtonWait() throws FindFailed {
+        screen.wait(maisButton(), TIME_OUT_SCREEN);
+    }
+
     public static void numerosSendKeys(String valor) throws FindFailed {
         screen.click(screen.find(padraoLabel()).below(100));
         screen.type(valor);
