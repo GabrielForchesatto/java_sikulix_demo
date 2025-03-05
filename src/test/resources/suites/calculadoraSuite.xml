@@ -2,7 +2,7 @@
 <suite name="Test">
     <test name="Test Calculadora Suite">
         <packages>
-            <package name=""></package>
+            <package name="tests.sikulix"></package>
         </packages>
     </test>
 </suite>

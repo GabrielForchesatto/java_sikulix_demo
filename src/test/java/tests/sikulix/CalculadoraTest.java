@@ -1,3 +1,5 @@
+package tests.sikulix;
+
 import org.sikuli.script.FindFailed;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -16,9 +18,12 @@ public class CalculadoraTest extends BaseSikulix {
     @Test
     public static void deveraSomarDoisValoresCorretamente() throws FindFailed, IOException {
         CalculadoraAction.abrirCalculadora();
+        CalculadoraAction.maximizarCalculadora();
         CalculadoraAction.somarValores(VALOR_1, VALOR_2);
 
         Assert.assertEquals(CalculadoraAction.resultadoGetText(), "3");
-        ReportListener.logScreenshotHighlightSikulix("Resultado da soma", -40 , 30, -245, -120, CalculadoraPage.padraoLabel());
+        ReportListener.logScreenshotHighlightSikulix("Resultado da soma", -40, 30, -1550, -270, CalculadoraPage.padraoLabel());
+
+        CalculadoraAction.fecharCalculadora();
     }
 }

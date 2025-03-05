@@ -12,21 +12,18 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import javax.imageio.IIOException;
-
-import java.awt.*;
 import java.io.IOException;
 
 import static utils.ScreenshotUtils.*;
 
-public class ReportListener implements ITestListener{
+public class ReportListener implements ITestListener {
 
     public synchronized void onStart(ITestContext context) {
         ExtentService.getInstance().setAnalysisStrategy(AnalysisStrategy.CLASS);
         ExtentService.getInstance().setSystemInfo("OS", System.getProperty("os.name"));
     }
 
-    public synchronized void onFinish(ITestResult context) {
+    public synchronized void onFinish(ITestContext context) {
         ExtentService.getInstance().flush();
     }
 
@@ -40,8 +37,8 @@ public class ReportListener implements ITestListener{
 
     public synchronized void onTestFailure(ITestResult result) {
         ExtentTestManager.log(result, true);
-        try{
-            ExtentTestManager.getTest().log(Status.INFO, " | Click for open Screenshot Attach: ====>" , MediaEntityBuilder.createScreenCaptureFromBase64String(addScreenshotBase64(createTestName(result))).build());
+        try {
+            ExtentTestManager.getTest().log(Status.INFO, " | Click for open Screenshot Attach: ====>", MediaEntityBuilder.createScreenCaptureFromBase64String(addScreenshotBase64(createTestName(result))).build());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -81,26 +78,25 @@ public class ReportListener implements ITestListener{
                 MediaEntityBuilder.createScreenCaptureFromBase64String(addScreenshotBase64("logScreenshot")).build());
     }
 
-    public static synchronized void logScreenshotHighlightSikulix(String comment, Pattern... pattern) throws AWTException, IOException {
+    public static synchronized void logScreenshotHighlightSikulix(String comment, Pattern... pattern) throws IOException {
         ExtentTestManager.getTest().log(Status.INFO, comment + "<br>" + " | Click for open Screenshot Attach: ====>",
                 MediaEntityBuilder.createScreenCaptureFromBase64String(addSikulixScreenshotHighlight("logScreenshotSikulix", pattern)).build());
     }
 
-    public static synchronized void logScreenshotHighlightSikulix(String comment, Integer xStart, Integer xEnd, Pattern... pattern) throws AWTException, IOException {
+    public static synchronized void logScreenshotHighlightSikulix(String comment, Integer x, Integer w, Pattern... pattern) throws IOException {
         ExtentTestManager.getTest().log(Status.INFO, comment + "<br>" + " | Click for open Screenshot Attach: ====>",
-                MediaEntityBuilder.createScreenCaptureFromBase64String(addSikulixScreenshotHighlight("logScreenshotSikulix", xStart, xEnd, pattern)).build());
+                MediaEntityBuilder.createScreenCaptureFromBase64String(addSikulixScreenshotHighlight("logScreenshotSikulix", x, w, pattern)).build());
     }
 
-    public static synchronized void logScreenshotHighlightSikulix(String comment, Integer xStart, Integer xEnd, Integer yStart, Integer yEnd, Pattern... pattern) {
+    public static synchronized void logScreenshotHighlightSikulix(String comment, Integer x, Integer y, Integer w, Integer h, Pattern... pattern) throws IOException {
         ExtentTestManager.getTest().log(Status.INFO, comment + "<br>" + " | Click for open Screenshot Attach: ====>",
-                MediaEntityBuilder.createScreenCaptureFromBase64String(addSikulixScreenshotHighlight("logScreenshotSikulix", xStart, xEnd, yStart, yEnd, pattern)).build());
+                MediaEntityBuilder.createScreenCaptureFromBase64String(addSikulixScreenshotHighlight("logScreenshotSikulix", x, y, w, h, pattern)).build());
     }
 
     public static synchronized void logScreenshotHighlightSelenium(String comment, WebDriver driver, WebElement element) throws IOException {
         ExtentTestManager.getTest().log(Status.INFO, comment + "<br>" + " | Click for open Screenshot Attach: ====>",
                 MediaEntityBuilder.createScreenCaptureFromBase64String(addWebScreenshotBase64Highlight("logScreenshotSikulix", driver, element)).build());
     }
-
 
 
 }

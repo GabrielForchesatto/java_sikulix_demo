@@ -8,7 +8,7 @@ public class PropertiesUtils {
 
     public static Properties getProperty() throws IOException {
         Properties properties = new Properties();
-        FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\credentials.properties");
+        FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\arquivo.properties");
         properties.load(file);
         return properties;
     }
