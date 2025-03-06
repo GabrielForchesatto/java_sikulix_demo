@@ -6,11 +6,11 @@ import java.util.Properties;
 
 public class PropertiesUtils {
 
-    public static Properties getProperty() throws IOException {
+    public static String getProperty(String name) throws IOException {
         Properties properties = new Properties();
-        FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\arquivo.properties");
+        FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\resources\\url.properties");
         properties.load(file);
-        return properties;
+        return properties.getProperty(name);
     }
 
 }

@@ -1,4 +1,4 @@
-package sikulix;
+package desktop;
 
 import org.sikuli.script.Screen;
 

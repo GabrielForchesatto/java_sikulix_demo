@@ -1,7 +1,7 @@
 package utils;
 
+import desktop.BaseScreen;
 import org.sikuli.script.*;
-import sikulix.BaseScreen;
 
 public class MethodsUtils extends BaseScreen {
 

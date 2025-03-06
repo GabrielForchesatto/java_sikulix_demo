@@ -1,7 +1,7 @@
-package sikulix.calculadora.actions;
+package desktop.calculadora.actions;
 
+import desktop.calculadora.pages.CalculadoraPage;
 import org.sikuli.script.FindFailed;
-import sikulix.calculadora.pages.CalculadoraPage;
 
 import java.io.IOException;
 
