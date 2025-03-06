@@ -1,5 +1,7 @@
-package tests.sikulix;
+package tests.desktop;
 
+import desktop.calculadora.actions.CalculadoraAction;
+import desktop.calculadora.pages.CalculadoraPage;
 import org.sikuli.script.FindFailed;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -7,13 +9,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import reports.ReportListener;
-import sikulix.calculadora.actions.CalculadoraAction;
-import sikulix.calculadora.pages.CalculadoraPage;
-import tests.BaseSikulix;
+import tests.BaseDesktop;
 
 import java.io.IOException;
 
-public class CalculadoraTest extends BaseSikulix {
+public class CalculadoraWindowsTest extends BaseDesktop {
 
     protected static final String VALOR_1 = "1";
     protected static final String VALOR_2 = "2";
@@ -41,7 +41,7 @@ public class CalculadoraTest extends BaseSikulix {
         CalculadoraAction.somarValores(VALOR_1, VALOR_2);
 
         Assert.assertEquals(CalculadoraAction.resultadoGetText(), "3");
-        ReportListener.logScreenshotHighlightSikulix("Resultado da soma", -40, 30, -1550, -270, CalculadoraPage.padraoLabel());
+        ReportListener.logScreenshotHighlightDesktop("Resultado da soma", -40, 30, -1550, -270, CalculadoraPage.padraoLabel());
     }
 
     @Test
@@ -49,7 +49,7 @@ public class CalculadoraTest extends BaseSikulix {
         CalculadoraAction.somarValores(VALOR_1, VALOR_2, VALOR_3, VALOR_4);
 
         Assert.assertEquals(CalculadoraAction.resultadoGetText(), "10");
-        ReportListener.logScreenshotHighlightSikulix("Resultado da soma", -40, 30, -1550, -270, CalculadoraPage.padraoLabel());
+        ReportListener.logScreenshotHighlightDesktop("Resultado da soma", -40, 30, -1550, -270, CalculadoraPage.padraoLabel());
     }
 
 }

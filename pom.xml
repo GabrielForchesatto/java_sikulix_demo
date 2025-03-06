@@ -20,11 +20,13 @@
             <artifactId>extentreports</artifactId>
             <version>4.0.9</version>
         </dependency>
+
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports-testng-adapter</artifactId>
             <version>1.0.3</version>
         </dependency>
+
         <dependency>
             <groupId>com.sikuli</groupId>
             <artifactId>sikulixide</artifactId>
@@ -45,6 +47,28 @@
             <version>4.28.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.7.0</version>
+        </dependency>
+
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${basedir}/src/test/resources/${testSuite}.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>

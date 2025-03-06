@@ -66,6 +66,8 @@ public class ScreenshotUtils {
             ImageIO.write(capture, "png", baos);
             byte[] imageBytes = baos.toByteArray();
 
+            imageFile.delete();
+
             return Base64.getEncoder().encodeToString(imageBytes);
 
 
@@ -75,7 +77,7 @@ public class ScreenshotUtils {
     }
 
 
-    public static String addSikulixScreenshotHighlight(String name, Pattern... patterns) {
+    public static String addDesktopScreenshotHighlight(String name, Pattern... patterns) {
         String imgPath = System.getProperty("user.dir") + "\\target\\" + name + DateUtils.getTimeStamp() + ".png";
 
 
@@ -109,7 +111,7 @@ public class ScreenshotUtils {
 
     }
 
-    public static String addSikulixScreenshotHighlight(String name, Integer x, Integer w, Pattern... patterns) {
+    public static String addDesktopScreenshotHighlight(String name, Integer x, Integer w, Pattern... patterns) {
         String imgPath = System.getProperty("user.dir") + "\\target\\" + name + DateUtils.getTimeStamp() + ".png";
 
 
@@ -143,7 +145,7 @@ public class ScreenshotUtils {
         }
     }
 
-    public static String addSikulixScreenshotHighlight(String name, Integer x, Integer y, Integer w, Integer h, Pattern... patterns) {
+    public static String addDesktopScreenshotHighlight(String name, Integer x, Integer y, Integer w, Integer h, Pattern... patterns) {
         String imgPath = System.getProperty("user.dir") + "\\target\\" + name + DateUtils.getTimeStamp() + ".png";
 
 

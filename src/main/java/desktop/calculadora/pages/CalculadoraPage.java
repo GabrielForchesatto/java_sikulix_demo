@@ -1,7 +1,7 @@
-package sikulix.calculadora.pages;
+package desktop.calculadora.pages;
 
+import desktop.BaseScreen;
 import org.sikuli.script.*;
-import sikulix.BaseScreen;
 
 public class CalculadoraPage extends BaseScreen {
 

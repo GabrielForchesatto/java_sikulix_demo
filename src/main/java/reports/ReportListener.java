@@ -78,24 +78,24 @@ public class ReportListener implements ITestListener {
                 MediaEntityBuilder.createScreenCaptureFromBase64String(addScreenshotBase64("logScreenshot")).build());
     }
 
-    public static synchronized void logScreenshotHighlightSikulix(String comment, Pattern... pattern) throws IOException {
+    public static synchronized void logScreenshotHighlightDesktop(String comment, Pattern... pattern) throws IOException {
         ExtentTestManager.getTest().log(Status.INFO, comment + "<br>" + " | Click for open Screenshot Attach: ====>",
-                MediaEntityBuilder.createScreenCaptureFromBase64String(addSikulixScreenshotHighlight("logScreenshotSikulix", pattern)).build());
+                MediaEntityBuilder.createScreenCaptureFromBase64String(addDesktopScreenshotHighlight("logScreenshotDesktop", pattern)).build());
     }
 
-    public static synchronized void logScreenshotHighlightSikulix(String comment, Integer x, Integer w, Pattern... pattern) throws IOException {
+    public static synchronized void logScreenshotHighlightDesktop(String comment, Integer x, Integer w, Pattern... pattern) throws IOException {
         ExtentTestManager.getTest().log(Status.INFO, comment + "<br>" + " | Click for open Screenshot Attach: ====>",
-                MediaEntityBuilder.createScreenCaptureFromBase64String(addSikulixScreenshotHighlight("logScreenshotSikulix", x, w, pattern)).build());
+                MediaEntityBuilder.createScreenCaptureFromBase64String(addDesktopScreenshotHighlight("logScreenshotDesktop", x, w, pattern)).build());
     }
 
-    public static synchronized void logScreenshotHighlightSikulix(String comment, Integer x, Integer y, Integer w, Integer h, Pattern... pattern) throws IOException {
+    public static synchronized void logScreenshotHighlightDesktop(String comment, Integer x, Integer y, Integer w, Integer h, Pattern... pattern) throws IOException {
         ExtentTestManager.getTest().log(Status.INFO, comment + "<br>" + " | Click for open Screenshot Attach: ====>",
-                MediaEntityBuilder.createScreenCaptureFromBase64String(addSikulixScreenshotHighlight("logScreenshotSikulix", x, y, w, h, pattern)).build());
+                MediaEntityBuilder.createScreenCaptureFromBase64String(addDesktopScreenshotHighlight("logScreenshotDesktop", x, y, w, h, pattern)).build());
     }
 
-    public static synchronized void logScreenshotHighlightSelenium(String comment, WebDriver driver, WebElement element) throws IOException {
+    public static synchronized void logScreenshotHighlightWeb(String comment, WebDriver driver, WebElement element) throws IOException {
         ExtentTestManager.getTest().log(Status.INFO, comment + "<br>" + " | Click for open Screenshot Attach: ====>",
-                MediaEntityBuilder.createScreenCaptureFromBase64String(addWebScreenshotBase64Highlight("logScreenshotSikulix", driver, element)).build());
+                MediaEntityBuilder.createScreenCaptureFromBase64String(addWebScreenshotBase64Highlight("logScreenshotWeb", driver, element)).build());
     }
 
 
