@@ -27,7 +27,7 @@ public class CalculadoraGoogleTest extends BaseWeb {
 
 
     @BeforeClass
-    public static void acessarCalculadoraWeb() throws IOException, InterruptedException {
+    public static void acessarCalculadoraWeb() throws IOException {
         driver = DriverManager.getChromeDriver();
         driver.get(PropertiesUtils.getProperty("google.url"));
         googleAction = new GoogleAction(driver);
